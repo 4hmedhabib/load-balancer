@@ -1,0 +1,21 @@
+{
+  "name": "uber-eats",
+  "version": "1.0.0",
+  "description": "Uber Eats Clone for react native, google api , yelp api and firebase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git remote add origin https://github.com/ahmedhabiib/uber-eats.git"
+  },
+  "keywords": [
+    "uber-eats",
+    "ahmedhabiib",
+    "somali-projects",
+    "uber-eats-clone"
+  ],
+  "author": "ahmedhabib",
+  "license": "ISC"
+}

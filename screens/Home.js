@@ -4,9 +4,15 @@ import {
   Platform,
   StatusBar,
   View,
+  ScrollView,
 } from "react-native";
 import React from "react";
-import { Categories, HeaderTabs, SearchBar } from "../components";
+import {
+  Categories,
+  HeaderTabs,
+  SearchBar,
+  RestaurantItem,
+} from "../components";
 
 const Home = () => {
   return (
@@ -15,7 +21,10 @@ const Home = () => {
         <HeaderTabs />
         <SearchBar />
       </View>
-      <Categories />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Categories />
+        <RestaurantItem />
+      </ScrollView>
     </SafeAreaView>
   );
 };

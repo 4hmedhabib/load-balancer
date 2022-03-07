@@ -6,15 +6,19 @@ import {
   View,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import {
   Categories,
   HeaderTabs,
   SearchBar,
-  RestaurantItem,
+  RestaurantItems,
 } from "../components";
 
+import { items, localRestaurants } from "../data";
+
 const Home = () => {
+  const [restaurantItems, setRestaurantItems] = useState(localRestaurants);
+
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.headerTabContainer}>
@@ -22,8 +26,8 @@ const Home = () => {
         <SearchBar />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Categories />
-        <RestaurantItem />
+        <Categories items={items} />
+        <RestaurantItems restaurantData={restaurantItems} />
       </ScrollView>
     </SafeAreaView>
   );

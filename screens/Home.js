@@ -1,15 +1,19 @@
-import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import React from "react";
-import HeaderTabs from "../components/HeaderTabs";
+import { SafeArea } from "../components";
 
 const Home = () => {
   return (
-    <SafeAreaView>
-      <HeaderTabs />
-    </SafeAreaView>
+    <SafeArea>
+      <Text>Home</Text>
+    </SafeArea>
   );
 };
 
 export default Home;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  screen: {
+    flex: 1,
+  },
+});

@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 
-const Info = () => {
+const Info = ({ info }) => {
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
-        <Text style={styles.title}>Farmhouse Kitchen Thai Cuisine</Text>
+        <Text style={styles.title}>{info.name}</Text>
         <Text style={styles.time}>30 - 45 min</Text>
       </View>
       <View style={styles.reviewContainer}>
-        <Text style={styles.review}>4.5</Text>
+        <Text style={styles.review}>{info.rating}</Text>
       </View>
     </View>
   );
@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    marginTop: 7,
   },
   textContainer: {},
   title: {

@@ -2,13 +2,13 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import React from "react";
 
-const ImageComponent = () => {
+const ImageComponent = ({ source }) => {
   return (
     <View>
       <Image
         style={styles.image}
         source={{
-          uri: "https://assets.bonappetit.com/photos/610aa6ddc50e2f9f7c42f7f8/master/pass/Savage-2019-top-50-busy-restaurant.jpg",
+          uri: source,
         }}
       />
       <TouchableOpacity style={styles.heartOutline}>
@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     resizeMode: "cover",
+    borderRadius: 5,
   },
   heartOutline: {
     position: "absolute",

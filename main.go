@@ -75,6 +75,7 @@ func (lb *LoadBalancer) serveProxy(rw http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	logger.SetLevel(3)
 	servers := []Server{
 		newSimpleServer("https://www.facebook.com/"),
 		newSimpleServer("https://www.bing.com/"),

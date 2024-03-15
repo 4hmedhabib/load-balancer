@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"github.com/4hmedhabib/loadbalancer_with_go/logger"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
@@ -45,7 +45,7 @@ func NewLoadBalancer(port string, servers []Server) *LoadBalancer {
 
 func handleErr(err error) {
 	if err != nil {
-		fmt.Printf("error: %v:\n", err)
+		logger.Error("error: " + err.Error())
 		os.Exit(1)
 	}
 }
@@ -70,7 +70,7 @@ func (lb *LoadBalancer) getNextAvailableServer() Server {
 
 func (lb *LoadBalancer) serveProxy(rw http.ResponseWriter, r *http.Request) {
 	targetServer := lb.getNextAvailableServer()
-	fmt.Printf("forwarding request to address %q\n", targetServer.Address())
+	logger.Info("forwarding request to address " + targetServer.Address())
 	targetServer.Serve(rw, r)
 }
 
@@ -87,10 +87,11 @@ func main() {
 	}
 	http.HandleFunc("/", handleRedirect)
 
-	fmt.Printf("serving requests at 'localhost:%s'\n", lb.port)
+	logger.Info("serving requests at 'localhost:%s' " + lb.port)
 	err := http.ListenAndServe(":"+lb.port, nil)
 	if err != nil {
-		fmt.Printf("serving starting error: %s\n", err)
+		logger.Error("serving starting error: " + err.Error())
+		logger.Debug(err.Error())
 		return
 	}
 

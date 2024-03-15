@@ -38,7 +38,8 @@ func SetLevel(level int) {
 	logger.Level = level
 }
 
-// Methods to log (at different levels)
+//  Methods to log (at different levels)
+
 func Info(message string) {
 	if logger.Level <= InfoLevel {
 		logger.info.Println(message)
